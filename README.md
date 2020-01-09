@@ -2,7 +2,7 @@
 
 I wanted to create this app to develop my skills with React and general coding. I also felt it was an annoyance that I had to have multiple apps to keep up to date on the bushfire events happening around me.
 
-##### [Live Site](https://iwishjames.github.io/fireDash/)
+##### [Live Site](https://iwishjames.github.io/fire-dash/)
 ---
 
 # Reference/Resources
