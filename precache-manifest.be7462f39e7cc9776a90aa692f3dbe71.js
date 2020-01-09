@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a3693c07f7a2d8f41c8b5be7795f4bdd",
+    "revision": "06b050ff4ad96b4bf01c8c55fd1804c3",
     "url": "/fire-dash/index.html"
   },
   {
