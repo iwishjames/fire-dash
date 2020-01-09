@@ -1,0 +1,29 @@
+.textBold {
+  font-weight: bold;
+}
+
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.fireChart {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.chartArrow {
+  position: absolute;
+  top: 96px;
+  left: 190px;
+  transform-origin: bottom center;
+}
+
+@keyframes arrowMovement {
+  0% { transform: rotate(0deg) }
+}
+
+.warningText {
+  padding: 0 5px;
+}
