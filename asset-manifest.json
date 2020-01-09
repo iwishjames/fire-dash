@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fire-dash/static/css/main.e2b319b1.chunk.css",
+    "main.js": "/fire-dash/static/js/main.f14a4d6d.chunk.js",
+    "main.js.map": "/fire-dash/static/js/main.f14a4d6d.chunk.js.map",
+    "runtime-main.js": "/fire-dash/static/js/runtime-main.1e304570.js",
+    "runtime-main.js.map": "/fire-dash/static/js/runtime-main.1e304570.js.map",
+    "static/js/2.535c6328.chunk.js": "/fire-dash/static/js/2.535c6328.chunk.js",
+    "static/js/2.535c6328.chunk.js.map": "/fire-dash/static/js/2.535c6328.chunk.js.map",
+    "index.html": "/fire-dash/index.html",
+    "precache-manifest.e0e484b73d7a4931a535554a496ab7f5.js": "/fire-dash/precache-manifest.e0e484b73d7a4931a535554a496ab7f5.js",
+    "service-worker.js": "/fire-dash/service-worker.js",
+    "static/css/main.e2b319b1.chunk.css.map": "/fire-dash/static/css/main.e2b319b1.chunk.css.map",
+    "static/media/airrow.png": "/fire-dash/static/media/airrow.ea7cc9d7.png",
+    "static/media/firechart.png": "/fire-dash/static/media/firechart.91714137.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1e304570.js",
+    "static/js/2.535c6328.chunk.js",
+    "static/css/main.e2b319b1.chunk.css",
+    "static/js/main.f14a4d6d.chunk.js"
+  ]
+}
