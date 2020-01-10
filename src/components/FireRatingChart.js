@@ -49,6 +49,35 @@ class FireRatingChart extends Component {
         "CATASTROPHIC": [75, "#e5281b"]
       }
 
+      // Potentially could change the numbers to the the specific region name, so the developers can understand and use the key's index number as the value for the .json file .
+
+      const councilAreas = {
+        0: ["Ballina", "Byron", "Clarence Valley", "Kyogle", "Lismore", "Richmond Valley", "Tweed"],
+        1:["Bellingen", "Coffs Harbour", "Port Macquarie-Hastings", "Kempsey", "Nambucca", "Mid-Coast"],
+        2:["Cessnock", "Dungog", "Lake Macquarie", "Maitland", "Muswellbrook", "Newcastle", "Port Stephens", "Singleton", "Upper Hunter"],
+        3:["The Hills", "Blacktown", "Blue Mountains", "Burwood", "Camden", "Campbelltown", "Canada Bay", "Fairfield", "Hawkesbury", "Hornsby", "Hunters Hill", "Kogarah", "Ku-ring-gai", "Lane Cove", "Liverpool", "Mosman", "North Sydney", "Parramatta", "Penrith", "Randwick", "Ryde", "Strathfield", "Sutherland", "Sydney", "Waverley", "Willoughby", "Woollahra", "Bayside", "Canterbury-Bankstown", "Central Coast", "Cumberland", "Georges River", "Inner West", "Northern Beaches"],
+        4:["Kiama", "Shellharbour", "Shoalhaven", "Wingecarribee", "Wollondilly", "Wollongong"],
+        5:["Bega Valley", "Eurobodalla"],
+        6:["Snowy Monaro"],
+        7:["ACT"],
+        8:["Goulburn Mulwaree", "Upper Lachlan", "Yass Valley", "Queanbeyan-Palerang"],
+        9:["Bathurst", "Blayney", "Cabonne", "Cowra", "Lithgow", "Mid-Western", "Oberon", "Orange"],
+        10:["Glen Innes Severn", "Tenterfield", "Uralla", "Walcha", "Armidale"],
+        11:["Gunnedah", "Gwydir", "Inverell", "Liverpool Plains", "Tamworth"],
+        12:["Moree Plains", "Narrabri", "Walgett", "Warrumbungle"],
+        13:["Bogan", "Coonamble", "Gilgandra", "Warren"],
+        14:["Bland", "Forbes", "Lachlan", "Narromine", "Parkes", "Temora", "Weddin", "Dubbo"],
+        15:["Cootamundra-Gundagai", "Hilltops", "Snowy Valleys"],
+        16:["Albury", "Coolamon", "Greater Hume", "Junee", "Lockhart", "Wagga Wagga"],
+        17:["Berrigan", "Edward River", "Federation", "Murray River", "Murrumbidgee (Southern parts)"],
+        18:["Carrathool", "Griffith", "Hay", "Leeton", "Narrandera", "Murrumbidgee (Northern parts)"],
+        19:["Balranald", "Wentworth"],
+        20:["Bourke", "Brewarrina", "Broken Hill", "Central Darling", "Cobar"]
+      }
+
+      // Creating a consolidated list of all the values of the Council Area - single list of all the councils. Here Obkect.values provides an array of arrays with the values, while flat consolidates it all together into a single array.
+      const areasList = (Object.values(councilAreas)).flat();
+
       let arrowDegree = "";
       let warningBgColor = "";
       let todaysWarning = "";

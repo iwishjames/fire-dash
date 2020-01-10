@@ -22,6 +22,8 @@ I wanted to create this app to develop my skills with React and general coding. 
 - fetching and reading XML data - because the data was in XML! :( - [youtube](https://www.youtube.com/watch?v=MDAWie2Sicc)
 - XML to JSON npm  - [npmjs](https://www.npmjs.com/package/xml2js)
 - Fetch error resolution to  "React Js: Uncaught (in promise) SyntaxError: Unexpected token < in JSON at position 0" - [stackoverflow](https://stackoverflow.com/questions/37269808/react-js-uncaught-in-promise-syntaxerror-unexpected-token-in-json-at-posit)
+- Looping through objects in JS - [zellwk](https://zellwk.com/blog/looping-through-js-objects/)
+- flattening an array of arrays into a single array - flat() - [MDN web docs] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)
 
 ### CSS and Styling:
 - rotate at anchor point - [css-tricks](https://css-tricks.com/almanac/properties/t/transform-origin/)
@@ -49,7 +51,7 @@ I wanted to create this app to develop my skills with React and general coding. 
 
 - Anything else related to fire?
 
-
-
-
 - potentially could use local memory/storage to hold on to/save the person's location - so that they would only have to state it once and it should use that for everytime the page is reloaded.
+
+##### Things to do!
+- Drop Down to select your council/region
