@@ -48,6 +48,8 @@ I wanted to create this app to develop my skills with React and general coding. 
 - Data would need to be updated every 5 minutes or so?
 - Some kind of timer - to show the last time the page updated.
 - The notification/email option if the fire thing goes above high - Use the trick we had learnt from class??
+- Map of Regions as classified by RFS
+- AirQuality Data? 
 
 - Anything else related to fire?
 
@@ -55,3 +57,8 @@ I wanted to create this app to develop my skills with React and general coding. 
 
 ##### Things to do!
 - Drop Down to select your council/region
+
+
+##### Challenges!
+- Providing the option to select your council area so that the users can select their own area. The issue was that there was a long list of areas and they were allocated by a region number in the XML data.
+  - My solution was to: 1) Create an object with the list of councils areas allocated to their region, 2) create a single array with the list of all the areas and use that to dynamically create values for a select tag. 3) When a user selects one of the values, use that value to refer to the object list to identify the region number of the specific council area and that value to retrieve the data from the XML data.
