@@ -12,18 +12,30 @@ class FireRatingChart extends Component {
         fireBanToday: "",
         fireDangerTomorrow : "",
         fireBanTodayTomorrow : "",
-
+        districtNumber: 0,
+        districtName: ''
       }
+      this.getDistrictName = this.getDistrictName.bind(this)
+      this.getDistrictNumber = this.getDistrictNumber.bind(this)
     }
 
+        getDistrictNumber(value) {
+          this.setState({districtNumber: value})
+        }
+
+        getDistrictName(value) {
+          this.setState({districtName: value})
+        }
+
+
 /* The datafile was in XML, so had to be converted to JSON. I used NPM xml2js for this. Also the datafile had a cors issue, which was overcome using the proxyURL! So here the data is received as text, and then converted to json. */
-    componentDidMount() {
+    componentDidUpdate() {
       var xml2js = require('xml2js');
       var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
       var targetUrl = 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml';
-      var indexValue = 3;
+      var indexValue = this.state.districtNumber;
 
-      this.setState({loading: true})
+      // this.setState({loading: true})
       fetch(proxyUrl + targetUrl)
         .then(response => response.text())
         .then(data => xml2js.parseStringPromise(data))
@@ -83,7 +95,7 @@ class FireRatingChart extends Component {
 
       return(
         <div>
-          <h1>Today's Fire Danger Rating For Campbelltown < SearchCouncil />: {mainWarningText}</h1>
+          <h1>Today's Fire Danger Rating For < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName}/>: {mainWarningText}</h1>
           <div className="parent">
             <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
             {animation}

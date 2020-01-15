@@ -49,7 +49,7 @@ I wanted to create this app to develop my skills with React and general coding. 
 - Some kind of timer - to show the last time the page updated.
 - The notification/email option if the fire thing goes above high - Use the trick we had learnt from class??
 - Map of Regions as classified by RFS
-- AirQuality Data? 
+- AirQuality Data?
 
 - Anything else related to fire?
 
