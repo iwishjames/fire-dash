@@ -2,6 +2,12 @@
   font-weight: bold;
 }
 
+.textUp {
+  position: relative;
+  bottom: 2ex;
+  font-size: 42%;
+  color: grey;
+}
 
 .parent {
   position: relative;

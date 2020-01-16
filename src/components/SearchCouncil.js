@@ -18,10 +18,11 @@ const councilAreas = [
   ["Bland", "Forbes", "Lachlan", "Narromine", "Parkes", "Temora", "Weddin", "Dubbo"],
   ["Cootamundra-Gundagai", "Hilltops", "Snowy Valleys"],
   ["Albury", "Coolamon", "Greater Hume", "Junee", "Lockhart", "Wagga Wagga"],
-  ["Berrigan", "Edward River", "Federation", "Murray River", "Murrumbidgee (Southern parts)"],
-  ["Carrathool", "Griffith", "Hay", "Leeton", "Narrandera", "Murrumbidgee (Northern parts)"],
+  ["Berrigan", "Edward River", "Federation", "Murray River", "Murrumbidgee (Sth)"],
+  ["Carrathool", "Griffith", "Hay", "Leeton", "Narrandera", "Murrumbidgee (Nth)"],
   ["Balranald", "Wentworth"],
-  ["Bourke", "Brewarrina", "Broken Hill", "Central Darling", "Cobar"]
+  ["Bourke", "Brewarrina", "Broken Hill", "Central Darling", "Cobar"],
+  ["Select"]
 ];
 
 class SearchCouncil extends Component {
@@ -77,7 +78,7 @@ class SearchCouncil extends Component {
 
     return(
       <select onChange={this.handleChange}>
-        <option value="select">Select</option>
+        <option value="Select">Select</option>
         {areasOptions}
       </select>
     )}

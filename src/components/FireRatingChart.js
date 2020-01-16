@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import SearchCouncil from '../components/SearchCouncil.js';
+import './style/FireRatingChart.css';
 
 class FireRatingChart extends Component {
     constructor() {
@@ -91,22 +92,26 @@ class FireRatingChart extends Component {
 
       const cataWarningColor = todaysWarning === "CATASTROPHIC" ? "white" : null;
       const mainWarningText = this.state.loading ? "loading..." : <span className="warningText" style={{backgroundColor: warningBgColor, color: cataWarningColor }}> {todaysWarning} </span>;
-      const animation = this.state.loading ? <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(0deg)`}}/> : <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`, animation: `arrowMovement 2s`}}/>;
+      const animation = this.state.loading ?
+        <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`}}/> :
+        <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`, animation: `arrowMovement 2s`}}/>;
+      const fireBanToday = this.state.fireBanToday !== "Yes" ?  "" : "Total Fire Ban Today";
+      const fireBanTomorrow = this.state.fireBanTomorrow !== "Yes" ?  "" : "Total Fire Ban Tomorrow";
 
       return(
         <div>
-          <h1>Today's Fire Danger Rating For < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName}/>: {mainWarningText}</h1>
+          <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName}/></h1>
           <div className="parent">
             <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
             {animation}
-
+            <h2>{mainWarningText}</h2>
             <p><span className="textBold">Region Name:</span> {this.state.regionName}</p>
             <p><span className="textBold">Region Number:</span>  {this.state.regionNumber} (For RFS fire map reference)</p>
-            <p><span className="textBold">Total Fire Ban Today?:</span>  {this.state.fireBanToday}</p>
+            <p><span className="textBold">{fireBanToday}</span></p>
             <span>_______________</span>
 
             <p><span className="textBold">Fire Danger Rating for Tomorrow:</span> <span className="warningText textBold" style={{backgroundColor: tomorrowsWarningColor, color: cataWarningColor }}>{this.state.fireDangerTomorrow}</span></p>
-            <p><span className="textBold">Total Fire Ban Tomorrow?:</span> {this.state.fireBanTomorrow}</p>
+            <p><span className="textBold">{fireBanTomorrow}</span></p>
             <br />
 
             <h4>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></h4>
