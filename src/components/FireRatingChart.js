@@ -1,5 +1,6 @@
 import React, {Component} from "react";
-import SearchCouncil from '../components/SearchCouncil.js';
+import SearchCouncil from '../components/SearchCouncil';
+import Weather from '../components/Weather';
 import './style/FireRatingChart.css';
 
 class FireRatingChart extends Component {
@@ -117,6 +118,8 @@ class FireRatingChart extends Component {
 
             <h4>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></h4>
           </div>
+          <br />
+          < Weather weatherLocation={this.state.districtName}/>
         </div>
       )
       }

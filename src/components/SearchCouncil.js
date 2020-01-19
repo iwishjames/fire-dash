@@ -8,7 +8,7 @@ const councilAreas = [
   ["Kiama", "Shellharbour", "Shoalhaven", "Wingecarribee", "Wollondilly", "Wollongong"],
   ["Bega Valley", "Eurobodalla"],
   ["Snowy Monaro"],
-  ["ACT"],
+  ["Canberra"],
   ["Goulburn Mulwaree", "Upper Lachlan", "Yass Valley", "Queanbeyan-Palerang"],
   ["Bathurst", "Blayney", "Cabonne", "Cowra", "Lithgow", "Mid-Western", "Oberon", "Orange"],
   ["Glen Innes Severn", "Tenterfield", "Uralla", "Walcha", "Armidale"],

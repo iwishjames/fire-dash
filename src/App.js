@@ -12,8 +12,6 @@ class App extends Component {
       <div>
         < FireChart />
         <br />
-        < Weather />
-        <br />
         < Tweets />
       </div>
     )

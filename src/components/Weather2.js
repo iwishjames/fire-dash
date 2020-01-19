@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class Weather extends Component {
+class Weather2 extends Component {
   constructor(){
     super()
     this.state = {
@@ -15,9 +15,8 @@ class Weather extends Component {
   }
 
   componentDidMount(){
-    var location = this.props.weatherLocation;
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-    var targetUrl = `https://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=97871ec16b11f660edcd3ce5632d6801`;
+    var targetUrl = 'http://reg.bom.gov.au/fwo/IDN60901/IDN60901.94757.json';
 
     fetch((proxyUrl + targetUrl), {
       headers : {
@@ -29,12 +28,12 @@ class Weather extends Component {
       .then(data => {
         console.log(data)
         this.setState({
-          description: "hello",
-          temperature : "hello",
-          percipitation: "hello",
-          humidity: "hello",
-          windSpeed: "hello" + "x 3.6",
-          windDirection: "hello"
+          description: data.observations.data[0].local_date_time,
+          temperature : data.observations.data[0].air_temp,
+          percipitation: data.observations.data[0].rain_trace,
+          humidity: data.observations.data[0].rel_hum,
+          windSpeed: data.observations.data[0].wind_spd_kmh,
+          windDirection: data.observations.data[0].wind_dir
         });
       })
   }
@@ -42,7 +41,7 @@ class Weather extends Component {
   render(){
     return(
       <div>
-        <h1> Weather in {this.props.weatherLoction} </h1>
+        <h1>Weather in Campbelltown</h1>
         <p><span className="textBold">Last Updated:</span> {this.state.description}</p>
         <p><span className="textBold">Temperature:</span> {this.state.temperature}℃</p>
         <p><span className="textBold">Percipitation: </span> {this.state.percipitation}%</p>
@@ -56,4 +55,4 @@ class Weather extends Component {
   }
 }
 
-export default Weather
+export default Weather2
