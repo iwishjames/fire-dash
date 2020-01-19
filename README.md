@@ -1,6 +1,6 @@
-**Fire Dash**: Your centralised dashboard for the bushfire season!
-
 **[THIS IS STILL A WORK IN PROGRESS]**
+
+**Fire Dash**: Your centralised dashboard for the bushfire season!
 
 I wanted to create this app to develop my skills with React and general coding. I also felt it was an annoyance that I had to have multiple apps to keep up to date on the bushfire events happening around me.
 
