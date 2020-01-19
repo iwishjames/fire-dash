@@ -96,7 +96,8 @@ class FireRatingChart extends Component {
         <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`}}/> :
         <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`, animation: `arrowMovement 2s`}}/>;
       const fireBanToday = this.state.fireBanToday !== "Yes" ?  "" : "Total Fire Ban Today";
-      const fireBanTomorrow = this.state.fireBanTomorrow !== "Yes" ?  "" : "Total Fire Ban Tomorrow";
+      const fireBanTomorrow = this.state.fireBanTomorrow !== "Yes" ?
+        "" : "Total Fire Ban Tomorrow" + <img src={"../media/no-fire.svg"} alt="Fire ban symbol" height="1px" />;
 
       return(
         <div>
