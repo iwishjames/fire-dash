@@ -2,6 +2,9 @@ import React, {Component} from "react";
 import SearchCouncil from '../components/SearchCouncil';
 import Weather from '../components/Weather';
 import './style/FireRatingChart.css';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 class FireRatingChart extends Component {
     constructor() {
@@ -15,7 +18,7 @@ class FireRatingChart extends Component {
         fireDangerTomorrow : "",
         fireBanTodayTomorrow : "",
         districtNumber: 0,
-        districtName: ''
+        districtName: 'Campbelltown'
       }
       this.getDistrictName = this.getDistrictName.bind(this)
       this.getDistrictNumber = this.getDistrictNumber.bind(this)
@@ -103,6 +106,7 @@ class FireRatingChart extends Component {
       return(
         <div>
           <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName}/></h1>
+
           <div className="parent">
             <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
             {animation}

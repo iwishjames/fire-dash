@@ -9,6 +9,11 @@
   color: grey;
 }
 
+.textCenter {
+  text-align: center;
+  background-color: green;
+}
+
 .parent {
   position: relative;
   top: 0;
@@ -32,4 +37,14 @@
 
 .warningText {
   padding: 0 5px;
+}
+
+/*  Weather.js */
+.weatherDivs {
+  background: linear-gradient(to bottom, #2a5298 0%, #1e3c72 100%) ;
+  color: white;
+  margin: 5px 5px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 10px;
 }

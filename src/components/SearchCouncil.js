@@ -22,7 +22,6 @@ const councilAreas = [
   ["Carrathool", "Griffith", "Hay", "Leeton", "Narrandera", "Murrumbidgee (Nth)"],
   ["Balranald", "Wentworth"],
   ["Bourke", "Brewarrina", "Broken Hill", "Central Darling", "Cobar"],
-  ["Select"]
 ];
 
 class SearchCouncil extends Component {
@@ -78,7 +77,6 @@ class SearchCouncil extends Component {
 
     return(
       <select onChange={this.handleChange}>
-        <option value="Select">Select</option>
         {areasOptions}
       </select>
     )}

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import FireChart from './components/FireRatingChart'
-import Weather from './components/Weather'
 import Tweets from './components/Tweets'
 
 class App extends Component {
