@@ -6,6 +6,10 @@ import clearnight from  '../media/weathericons/clearnight.png';
 import drizzlenight from  '../media/weathericons/drizzlenight.png';
 import partlycloudynight from  '../media/weathericons/partlycloudynight.png';
 import thunderstormnight from  '../media/weathericons/thunderstormnight.png';
+import sunny from  '../media/weathericons/sunny.png';
+import drizzle from  '../media/weathericons/drizzle.png';
+import partlycloudy from  '../media/weathericons/partlycloudy.png';
+import thunderstorm from  '../media/weathericons/thunderstorm.png';
 
 class Weather extends Component {
   constructor(){
@@ -21,7 +25,7 @@ class Weather extends Component {
   }
 
   componentDidMount(){
-    var location = "Campbelltown";
+    var location = "Albury";
     var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
     var targetUrl = `http://api.openweathermap.org/data/2.5/weather?q=${location},au&units=metric&APPID=97871ec16b11f660edcd3ce5632d6801`;
 
@@ -47,8 +51,18 @@ class Weather extends Component {
 
   render(){
     /* ---- Weathers of the Week --- */
-      var weatherIconns = [clearnight, drizzlenight, partlycloudynight, thunderstormnight];
-      var rand = weatherIconns[Math.floor(Math.random() * weatherIconns.length)];
+      var weatherIconsDay = [sunny, drizzle, partlycloudy, thunderstorm];
+      var weatherIconsNight = [clearnight, drizzlenight, partlycloudynight, thunderstormnight];
+      var dayHour = (new Date).getHours();
+    /* ------- */
+
+    /* ---- Day Mode/ Night Mode --- */
+      var dayNightMode = () => {
+        if (dayHour > 17) {
+          return weatherIconsNight;
+        }
+        return weatherIconsDay;
+      }
     /* ------- */
 
     /* ---- Days of the Week --- */
@@ -63,14 +77,14 @@ class Weather extends Component {
       var followingDaysName = daysOfAWeek.slice(todayValue + 1);
       var priorDaysName = daysOfAWeek.slice(0, todayValue);
 
-      var weekChart = followingDaysName.concat(priorDaysName);
+      var weekChart = (followingDaysName.concat(priorDaysName)).slice(0, 4);
     /* ------- */
 
     /* ---- Week Charting --- */
       const dayByDay = weekChart.map(day =>
         <Col md="auto" xs="auto" sm="auto" className="weatherDivs">
           <p className="textBold">{day}</p>
-          <img src={weatherIconns[Math.floor(Math.random() * weatherIconns.length)]} alt="drizzle icon" height="87px"/>
+          <img src={weatherIconsDay[Math.floor(Math.random() * weatherIconsDay.length)]} alt="drizzle icon" height="87px"/>
           <p>{Math.floor(Math.random() * (30-21 + 1)) + 21}℃ | {Math.floor(Math.random() * (20-1 + 1)) + 1}℃</p>
         </Col>);
         /* https://react-bootstrap.netlify.com/layout/grid/#col-props */
@@ -80,19 +94,22 @@ class Weather extends Component {
       <div>
         <Container>
           <Row>
-            <h1> Today's Weather in {this.props.weatherLocation} </h1>
+            <h3> Weather</h3>
           </Row>
-          <Row>
-            <Col md="auto">
+          <Row className="weatherBackground">
+            <Col>
               {/*<p><span className="textBold">Last Updated:</span> {this.state.description}</p>*/}
-              <p><span className="textBold">Day:</span> {todayName}</p>
-              <p><span className="textBold">Temperature:</span> {this.state.temperature}℃</p>
+              <p><span className="textBold">{todayName}</span></p>
+              <img src={dayNightMode()[Math.floor(Math.random() * (dayNightMode()).length)]} alt="drizzle icon"/>
+              <p><span className="textBold">Current Temp:</span> {this.state.temperature}℃</p>
+            </Col>
+            <Col>
+              <p><span className="textBold">Location:</span> {this.props.weatherLocation}</p>
               <p><span className="textBold">Percipitation: </span> {this.state.percipitation}%</p>
               <p><span className="textBold">Humidity: </span> {this.state.humidity}%</p>
               <p><span className="textBold">Wind: </span> {this.state.windSpeed} km/h</p>
               <p><span className="textBold">Wind Direction: </span> {this.state.windDirection}°</p>
             </Col>
-            <Col>2 of 2</Col>
           </Row>
           <Row>
             {dayByDay}

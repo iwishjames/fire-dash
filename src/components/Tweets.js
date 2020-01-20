@@ -10,7 +10,7 @@ class Tweets extends Component {
        screenName="NSWRFS"
        options={{
          height: "500",
-         width: "40%",
+         width: "80%",
        }}
      />
     </div>

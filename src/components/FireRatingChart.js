@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import SearchCouncil from '../components/SearchCouncil';
 import Weather from '../components/Weather';
-import './style/FireRatingChart.css';
+import Tweets from '../components/Tweets'
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -18,7 +18,7 @@ class FireRatingChart extends Component {
         fireDangerTomorrow : "",
         fireBanTodayTomorrow : "",
         districtNumber: 0,
-        districtName: 'Campbelltown'
+        districtName: 'Albury'
       }
       this.getDistrictName = this.getDistrictName.bind(this)
       this.getDistrictNumber = this.getDistrictNumber.bind(this)
@@ -34,7 +34,7 @@ class FireRatingChart extends Component {
 
 
 /* The datafile was in XML, so had to be converted to JSON. I used NPM xml2js for this. Also the datafile had a cors issue, which was overcome using the proxyURL! So here the data is received as text, and then converted to json. */
-    componentDidUpdate() {
+    componentDidMount() {
       var xml2js = require('xml2js');
       var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
       var targetUrl = 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml';
@@ -105,25 +105,48 @@ class FireRatingChart extends Component {
 
       return(
         <div>
-          <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName}/></h1>
-
-          <div className="parent">
-            <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
-            {animation}
-            <h2>{mainWarningText}</h2>
-            <p><span className="textBold">Region Name:</span> {this.state.regionName}</p>
-            <p><span className="textBold">Region Number:</span>  {this.state.regionNumber} (For RFS fire map reference)</p>
-            <p><span className="textBold">{fireBanToday}</span></p>
-            <span>_______________</span>
-
-            <p><span className="textBold">Fire Danger Rating for Tomorrow:</span> <span className="warningText textBold" style={{backgroundColor: tomorrowsWarningColor, color: cataWarningColor }}>{this.state.fireDangerTomorrow}</span></p>
-            <p><span className="textBold">{fireBanTomorrow}</span></p>
-            <br />
-
-            <h4>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></h4>
+          <div className="centerDiv textCenter">
+            <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName}/></h1>
           </div>
-          <br />
-          < Weather weatherLocation={this.state.districtName}/>
+
+          <Container>
+          <Row>
+            <Col>
+            <h3> Fire Danger Rating</h3>
+            <div className="parent">
+              <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
+              {animation}
+              <h2>{mainWarningText}</h2>
+              <p><span className="textBold">Region Name:</span> {this.state.regionName}</p>
+              <p><span className="textBold">Region Number:</span>  {this.state.regionNumber} (For RFS fire map reference)</p>
+              <p><span className="textBold">{fireBanToday}</span></p>
+              <span>_______________</span>
+
+              <p><span className="textBold">Fire Danger Rating for Tomorrow:</span> <span className="warningText textBold" style={{backgroundColor: tomorrowsWarningColor, color: cataWarningColor }}>{this.state.fireDangerTomorrow}</span></p>
+              <p><span className="textBold">{fireBanTomorrow}</span></p>
+              <br />
+
+              <h5>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></h5>
+            </div>
+            <br />
+            </Col>
+            <Col>
+              < Weather weatherLocation={this.state.districtName}/>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+              <h3>Twitter Feed</h3>
+              < Tweets />
+            </Col>
+
+            <Col>
+              <h3>Other Info</h3>
+            </Col>
+          </Row>
+
+          </Container>
         </div>
       )
       }

@@ -11,8 +11,6 @@ class App extends Component {
     return(
       <div>
         < FireChart />
-        <br />
-        < Tweets />
       </div>
     )
   }

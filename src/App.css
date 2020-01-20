@@ -1,3 +1,18 @@
+select {
+  border: 0px;
+  outline: 0px;
+  font-size: 0.9em;
+  width: 50%;
+}
+
+
+
+.centerDiv{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 .textBold {
   font-weight: bold;
 }
@@ -11,7 +26,6 @@
 
 .textCenter {
   text-align: center;
-  background-color: green;
 }
 
 .parent {
@@ -43,8 +57,15 @@
 .weatherDivs {
   background: linear-gradient(to bottom, #2a5298 0%, #1e3c72 100%) ;
   color: white;
-  margin: 5px 5px;
+  margin: 5px 5px 5px 0;
   border-radius: 5px;
   text-align: center;
+  padding-top: 10px;
+}
+
+.weatherBackground {
+  background: linear-gradient(to bottom, #2a5298 0%, #1e3c72 100%) ;
+  color: white;
+  border-radius: 5px;
   padding-top: 10px;
 }
