@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fire-dash/static/css/main.43202c9a.chunk.css",
-    "main.js": "/fire-dash/static/js/main.f2361ea4.chunk.js",
-    "main.js.map": "/fire-dash/static/js/main.f2361ea4.chunk.js.map",
+    "main.js": "/fire-dash/static/js/main.eb36bf2c.chunk.js",
+    "main.js.map": "/fire-dash/static/js/main.eb36bf2c.chunk.js.map",
     "runtime-main.js": "/fire-dash/static/js/runtime-main.1e304570.js",
     "runtime-main.js.map": "/fire-dash/static/js/runtime-main.1e304570.js.map",
     "static/css/2.17e5ed98.chunk.css": "/fire-dash/static/css/2.17e5ed98.chunk.css",
     "static/js/2.91c7aeb4.chunk.js": "/fire-dash/static/js/2.91c7aeb4.chunk.js",
     "static/js/2.91c7aeb4.chunk.js.map": "/fire-dash/static/js/2.91c7aeb4.chunk.js.map",
     "index.html": "/fire-dash/index.html",
-    "precache-manifest.e4ee945a4cfe67255801e0caec027ff9.js": "/fire-dash/precache-manifest.e4ee945a4cfe67255801e0caec027ff9.js",
+    "precache-manifest.261d439629998804ae6aa3f2203eb283.js": "/fire-dash/precache-manifest.261d439629998804ae6aa3f2203eb283.js",
     "service-worker.js": "/fire-dash/service-worker.js",
     "static/css/2.17e5ed98.chunk.css.map": "/fire-dash/static/css/2.17e5ed98.chunk.css.map",
     "static/css/main.43202c9a.chunk.css.map": "/fire-dash/static/css/main.43202c9a.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.17e5ed98.chunk.css",
     "static/js/2.91c7aeb4.chunk.js",
     "static/css/main.43202c9a.chunk.css",
-    "static/js/main.f2361ea4.chunk.js"
+    "static/js/main.eb36bf2c.chunk.js"
   ]
 }
