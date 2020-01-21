@@ -24,17 +24,24 @@ const councilAreas = [
   ["Bourke", "Brewarrina", "Broken Hill", "Central Darling", "Cobar"],
 ];
 
+const areasList = (councilAreas.flat()).sort();
+const areasOptions = areasList.map((area) =>
+  <option key={area} value={area}>{area}</option>
+);
+
 class SearchCouncil extends Component {
   constructor() {
     super()
     this.state = {
-      districtName: '',
-      districtNumber: null
+      districtName: 'Albury',
+      districtNumber: null,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.getDistrictNumber = this.getDistrictNumber.bind(this);
   }
+
+//as default map's second paramater is the index of the value.
 
   getDistrictNumber(districtName) {
     let districtNumber = null
@@ -49,32 +56,25 @@ class SearchCouncil extends Component {
 
   handleChange(event) {
     let districtName = event.target.value;
-
+    let locationName = event.target.value;
     let districtNumber = this.getDistrictNumber(districtName);
 
-    // Here we are getting the District name and checking through the array of arrays to get the index value. this will be the value which will be required to be used in the data URL.
+    let locationIndex;
+    councilAreas.map((region, index) => {
+    if (region.includes(event.target.value)) {
+     locationIndex = index;
+    }
+    });
 
     this.props.setDistrictNumber(districtNumber)
     this.props.setDistrictName(districtName)
+    this.props.getWeather(locationName)
+    this.props.getIndex(locationIndex)
 
     this.setState({districtName: districtName});
   }
 
-
   render(){
-    // Potentially could change the numbers to the the specific region name, so the developers can understand and use the key's index number as the value for the .json file .
-
-
-    // Creating a consolidated list of all the values of the council areas. flat consolidates it all together into a single array. This will be used to create a dynamic select menu.
-    const areasList = (councilAreas.flat()).sort();
-    const areasOptions = areasList.map((area) =>
-      <option key={area} value={area}>{area}</option>
-    );
-
-
-
-
-
     return(
       <select onChange={this.handleChange}>
         {areasOptions}
@@ -83,3 +83,10 @@ class SearchCouncil extends Component {
 }
 
 export default SearchCouncil
+
+
+// Here we are getting the District name and checking through the array of arrays to get the index value. this will be the value which will be required to be used in the data URL.
+
+// Potentially could change the numbers to the the specific region name, so the developers can understand and use the key's index number as the value for the .json file .
+
+// Creating a consolidated list of all the values of the council areas. flat consolidates it all together into a single array. This will be used to create a dynamic select menu.

@@ -17,11 +17,25 @@ class FireRatingChart extends Component {
         fireBanToday: "",
         fireDangerTomorrow : "",
         fireBanTodayTomorrow : "",
+        councils : "",
         districtNumber: 0,
-        districtName: 'Albury'
+        districtName: 'Albury',
+        weatherData: {
+            region: "Albury",
+            description: "",
+            temperature : "",
+            percipitation: "",
+            humidity: "",
+            windSpeed: "",
+            windDirection: "",
+            weatherIcon: "",
+            location: "",
+          }
       }
       this.getDistrictName = this.getDistrictName.bind(this)
       this.getDistrictNumber = this.getDistrictNumber.bind(this)
+      this.getWeather();
+      this.getFireRating();
     }
 
         getDistrictNumber(value) {
@@ -32,30 +46,51 @@ class FireRatingChart extends Component {
           this.setState({districtName: value})
         }
 
+        getWeather = async (city) => {
+          let location = city === null ? "Albury" : city;
+          await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location},au&units=metric&APPID=97871ec16b11f660edcd3ce5632d6801`)
+            .then(result => result.json())
+            .then(data => {
+              console.log(data)
+              this.setState({
+                weatherData: {
+                  description: data.weather[0].description,
+                  temperature : Math.round(data.main.temp),
+                  percipitation: "",
+                  humidity: data.main.humidity,
+                  windSpeed: Math.round(data.wind.speed * 3.6),
+                  windDirection: data.wind.deg,
+                  weatherIcon: data.weather[0].icon,
+                  location: data.name,}
+              })
+            })
+        }
 
 /* The datafile was in XML, so had to be converted to JSON. I used NPM xml2js for this. Also the datafile had a cors issue, which was overcome using the proxyURL! So here the data is received as text, and then converted to json. */
-    componentDidMount() {
-      var xml2js = require('xml2js');
-      var proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-      var targetUrl = 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml';
-      var indexValue = this.state.districtNumber;
 
-      // this.setState({loading: true})
-      fetch(proxyUrl + targetUrl)
-        .then(response => response.text())
-        .then(data => xml2js.parseStringPromise(data))
-        .then(result => {
-            this.setState({
-              loading: false,
-              regionName: result.FireDangerMap.District[indexValue].Name[0],
-              regionNumber: result.FireDangerMap.District[indexValue].RegionNumber[0],
-              fireDangerToday: result.FireDangerMap.District[indexValue].DangerLevelToday[0],
-              fireBanToday: result.FireDangerMap.District[indexValue].FireBanToday[0],
-              fireDangerTomorrow: result.FireDangerMap.District[indexValue].DangerLevelTomorrow[0],
-              fireBanTomorrow: result.FireDangerMap.District[indexValue].FireBanTomorrow[0],
-            })
-          })
-    }
+          getFireRating = async (index) => {
+            let indexValue = 16;
+            let xml2js = require('xml2js');
+            let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            let targetUrl = 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml';
+
+
+            await fetch(proxyUrl + targetUrl)
+              .then(response => response.text())
+              .then(data => xml2js.parseStringPromise(data))
+              .then(result => {
+                console.log(result)
+                this.setState({
+                    regionName: result.FireDangerMap.District[indexValue].Name[0],
+                    regionNumber: result.FireDangerMap.District[indexValue].RegionNumber[0],
+                    fireDangerToday: result.FireDangerMap.District[indexValue].DangerLevelToday[0],
+                    fireBanToday: result.FireDangerMap.District[indexValue].FireBanToday[0],
+                    fireDangerTomorrow: result.FireDangerMap.District[indexValue].DangerLevelTomorrow[0],
+                    fireBanTomorrow: result.FireDangerMap.District[indexValue].FireBanTomorrow[0],
+                    councils: result.FireDangerMap.District[indexValue].Councils[0],
+                })
+              })
+          }
 
     render(){
 
@@ -106,7 +141,7 @@ class FireRatingChart extends Component {
       return(
         <div>
           <div className="centerDiv textCenter">
-            <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName}/></h1>
+            <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName} getWeather={this.getWeather} getIndex={this.getFireRating}/></h1>
           </div>
 
           <Container>
@@ -119,6 +154,7 @@ class FireRatingChart extends Component {
               <h2>{mainWarningText}</h2>
               <p><span className="textBold">Region Name:</span> {this.state.regionName}</p>
               <p><span className="textBold">Region Number:</span>  {this.state.regionNumber} (For RFS fire map reference)</p>
+              <p><span className="textBold">Councils:</span> {this.state.councils}</p>
               <p><span className="textBold">{fireBanToday}</span></p>
               <span>_______________</span>
 
@@ -131,7 +167,7 @@ class FireRatingChart extends Component {
             <br />
             </Col>
             <Col>
-              < Weather weatherLocation={this.state.districtName}/>
+              < Weather weatherLocation={this.state.districtName} weatherData={this.state.weatherData}/>
             </Col>
           </Row>
 
