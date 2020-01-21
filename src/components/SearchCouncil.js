@@ -26,57 +26,36 @@ const councilAreas = [
 
 const areasList = (councilAreas.flat()).sort();
 const areasOptions = areasList.map((area) =>
-  <option key={area} value={area}>{area}</option>
+  <option value={area}>{area}</option>
 );
 
 class SearchCouncil extends Component {
   constructor() {
     super()
-    this.state = {
-      districtName: 'Albury',
-      districtNumber: null,
-    };
-
     this.handleChange = this.handleChange.bind(this);
-    this.getDistrictNumber = this.getDistrictNumber.bind(this);
   }
 
 //as default map's second paramater is the index of the value.
 
-  getDistrictNumber(districtName) {
-    let districtNumber = null
-    councilAreas.map((region, index) => {
-    if (region.includes(districtName)) {
-     this.setState({fireDistrict: index});
-     districtNumber = index;
-    }
-    });
-    return districtNumber
-  }
-
   handleChange(event) {
-    let districtName = event.target.value;
     let locationName = event.target.value;
-    let districtNumber = this.getDistrictNumber(districtName);
 
     let locationIndex;
     councilAreas.map((region, index) => {
-    if (region.includes(event.target.value)) {
+    if (region.includes(locationName)) {
      locationIndex = index;
     }
     });
 
-    this.props.setDistrictNumber(districtNumber)
-    this.props.setDistrictName(districtName)
     this.props.getWeather(locationName)
     this.props.getIndex(locationIndex)
 
-    this.setState({districtName: districtName});
   }
 
   render(){
     return(
       <select onChange={this.handleChange}>
+        <option value="Select">Select</option>
         {areasOptions}
       </select>
     )}

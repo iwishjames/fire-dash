@@ -10,7 +10,6 @@ class FireRatingChart extends Component {
     constructor() {
       super()
       this.state = {
-        loading: false,
         regionName: "",
         regionNumber: "",
         fireDangerToday : "",
@@ -18,8 +17,6 @@ class FireRatingChart extends Component {
         fireDangerTomorrow : "",
         fireBanTodayTomorrow : "",
         councils : "",
-        districtNumber: 0,
-        districtName: 'Albury',
         weatherData: {
             region: "Albury",
             description: "",
@@ -32,19 +29,7 @@ class FireRatingChart extends Component {
             location: "",
           }
       }
-      this.getDistrictName = this.getDistrictName.bind(this)
-      this.getDistrictNumber = this.getDistrictNumber.bind(this)
-      this.getWeather();
-      this.getFireRating();
     }
-
-        getDistrictNumber(value) {
-          this.setState({districtNumber: value})
-        }
-
-        getDistrictName(value) {
-          this.setState({districtName: value})
-        }
 
         getWeather = async (city) => {
           let location = city === null ? "Albury" : city;
@@ -69,7 +54,7 @@ class FireRatingChart extends Component {
 /* The datafile was in XML, so had to be converted to JSON. I used NPM xml2js for this. Also the datafile had a cors issue, which was overcome using the proxyURL! So here the data is received as text, and then converted to json. */
 
           getFireRating = async (index) => {
-            let indexValue = 16;
+            let indexValue = index;
             let xml2js = require('xml2js');
             let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
             let targetUrl = 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml';
