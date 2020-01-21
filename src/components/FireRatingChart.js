@@ -33,7 +33,7 @@ class FireRatingChart extends Component {
 
         getWeather = async (city) => {
           let location = city === null ? "Albury" : city;
-          await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${location},au&units=metric&APPID=97871ec16b11f660edcd3ce5632d6801`)
+          await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location},au&units=metric&APPID=97871ec16b11f660edcd3ce5632d6801`)
             .then(result => result.json())
             .then(data => {
               console.log(data)
@@ -138,8 +138,8 @@ class FireRatingChart extends Component {
               {animation}
               <h2>{mainWarningText}</h2>
               <p><span className="textBold">Region Name:</span> {this.state.regionName}</p>
-              <p><span className="textBold">Region Number:</span>  {this.state.regionNumber} (For RFS fire map reference)</p>
-              <p><span className="textBold">Councils:</span> {this.state.councils}</p>
+              <p><span className="textBold">Region Number</span> (RFS Map Reference):  {this.state.regionNumber} </p>
+              {/*<p><span className="textBold">Councils:</span> {this.state.councils}</p>*/}
               <p><span className="textBold">{fireBanToday}</span></p>
               <span>_______________</span>
 
