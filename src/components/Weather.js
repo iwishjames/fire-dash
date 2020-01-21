@@ -64,7 +64,7 @@ class Weather extends Component {
             <Col>
               {/*<p><span className="textBold">Last Updated:</span> {this.state.description}</p>*/}
               <p><span className="textBold">{todayName}</span></p>
-              <img src={`http://openweathermap.org/img/wn/${this.props.weatherData.weatherIcon}@2x.png`} alt="drizzle icon"/>
+              <img src={`https://openweathermap.org/img/wn/${this.props.weatherData.weatherIcon}@2x.png`} alt="drizzle icon"/>
               <p>{this.props.weatherData.description}</p>
               <p><span className="textBold">Current Temp:</span> {this.props.weatherData.temperature}℃</p>
             </Col>
