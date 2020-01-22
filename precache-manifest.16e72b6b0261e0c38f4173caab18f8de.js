@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "47ecedface9172bdf23da8d80646b4f4",
+    "revision": "d41535d454296dbfa17cab3961d051e7",
     "url": "/fire-dash/index.html"
   },
   {
-    "revision": "63041bfba4b511d775cb",
+    "revision": "5d2dbfbc6f5e13084c49",
     "url": "/fire-dash/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "bdf8bde240e0d4d17aa6",
+    "revision": "d15a96d9c274bfd113de",
     "url": "/fire-dash/static/css/main.43202c9a.chunk.css"
   },
   {
-    "revision": "63041bfba4b511d775cb",
-    "url": "/fire-dash/static/js/2.91c7aeb4.chunk.js"
+    "revision": "5d2dbfbc6f5e13084c49",
+    "url": "/fire-dash/static/js/2.5d290b2c.chunk.js"
   },
   {
-    "revision": "bdf8bde240e0d4d17aa6",
-    "url": "/fire-dash/static/js/main.2ee4b841.chunk.js"
+    "revision": "d15a96d9c274bfd113de",
+    "url": "/fire-dash/static/js/main.1e5d2a3f.chunk.js"
   },
   {
     "revision": "c023638bed4f475d4045",
