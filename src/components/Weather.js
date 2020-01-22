@@ -64,16 +64,16 @@ class Weather extends Component {
             <Col>
               {/*<p><span className="textBold">Last Updated:</span> {this.state.description}</p>*/}
               <p><span className="textBold">{todayName}</span></p>
-              <img src={`https://openweathermap.org/img/wn/${this.props.weatherData.weatherIcon}@2x.png`} alt="drizzle icon"/>
-              <p>{this.props.weatherData.description}</p>
-              <p><span className="textBold">Current Temp:</span> {this.props.weatherData.temperature}℃</p>
+              <img src={`https://openweathermap.org/img/wn/${this.props.weatherIcon}@2x.png`} alt="drizzle icon"/>
+              <p>{this.props.description}</p>
+              <p><span className="textBold">Current Temp:</span> {this.props.temperature}℃</p>
             </Col>
             <Col>
-              <p><span className="textBold">Location:</span> {this.props.weatherData.location}</p>
-              <p><span className="textBold">Percipitation: </span> {this.props.weatherData.percipitation}%</p>
-              <p><span className="textBold">Humidity: </span> {this.props.weatherData.humidity}%</p>
-              <p><span className="textBold">Wind: </span> {this.props.weatherData.windSpeed} km/h</p>
-              <p><span className="textBold">Wind Direction: </span> {this.props.weatherData.windDirection}°</p>
+              <p><span className="textBold">Location:</span> {this.props.location}</p>
+              <p><span className="textBold">Percipitation: </span> {this.props.percipitation}%</p>
+              <p><span className="textBold">Humidity: </span> {this.props.humidity}%</p>
+              <p><span className="textBold">Wind: </span> {this.props.windSpeed} km/h</p>
+              <p><span className="textBold">Wind Direction: </span> {this.props.windDirection}°</p>
             </Col>
           </Row>
           <Row>
