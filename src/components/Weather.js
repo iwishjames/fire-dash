@@ -51,7 +51,6 @@ import thunderstorm from  '../media/weathericons/thunderstorm.png';
     /* https://react-bootstrap.netlify.com/layout/grid/#col-props */
 /* ------- */
 
-
 class Weather extends Component {
   render(){
     return(

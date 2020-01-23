@@ -15,7 +15,7 @@ class App extends Component {
     super()
     this.state = {
       fireRatingData: {
-        loading: false,
+        display: false,
         regionName: "",
         regionNumber: "",
         fireDangerToday : "",
@@ -25,6 +25,7 @@ class App extends Component {
         councils : "",
       },
       weatherData: {
+          display: false,
           region: "Albury",
           description: "",
           temperature : "",
@@ -39,6 +40,7 @@ class App extends Component {
   }
 
           getWeather = async (city) => {
+            if (city !== "Select") {
             let location = city;
             await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${location},au&units=metric&APPID=97871ec16b11f660edcd3ce5632d6801`)
               .then(result => result.json())
@@ -46,6 +48,7 @@ class App extends Component {
                 console.log(data)
                 this.setState({
                   weatherData: {
+                    display: true,
                     description: data.weather[0].description,
                     temperature : Math.round(data.main.temp),
                     percipitation: "",
@@ -57,15 +60,18 @@ class App extends Component {
                 })
               })
           }
+}
+  /* The datafile was in XML, so had to be converted to JSON. I used NPM xml2js for this. Also the datafile had a cors issue, which was overcome using the proxyURL! So here the data is received as text, and then converted to json.
 
-  /* The datafile was in XML, so had to be converted to JSON. I used NPM xml2js for this. Also the datafile had a cors issue, which was overcome using the proxyURL! So here the data is received as text, and then converted to json. */
+  The if is checking if select is being selected. if so, then the load wont happen!
+  */
 
             getFireRating = async (index) => {
+              if (index !== 21) {
               let indexValue = index;
               let xml2js = require('xml2js');
               let proxyUrl = 'https://cors-anywhere.herokuapp.com/';
               let targetUrl = 'http://www.rfs.nsw.gov.au/feeds/fdrToban.xml';
-
 
               await fetch(proxyUrl + targetUrl)
                 .then(response => response.text())
@@ -74,6 +80,7 @@ class App extends Component {
                   console.log(result)
                   this.setState({
                       fireRatingData: {
+                        display: true,
                         regionName: result.FireDangerMap.District[indexValue].Name[0],
                         regionNumber: result.FireDangerMap.District[indexValue].RegionNumber[0],
                         fireDangerToday: result.FireDangerMap.District[indexValue].DangerLevelToday[0],
@@ -84,59 +91,66 @@ class App extends Component {
                       }
                   })
                 })
+              }
             }
 
   render(){
+
+    const content = this.state.fireRatingData.display === false ? "" : (
+          <div>
+            <Container>
+              <Row>
+                <Col>
+                  < FireChart
+                    display={this.state.fireRatingData.display}
+                    regionName={this.state.fireRatingData.regionName}
+                    regionNumber={this.state.fireRatingData.regionNumber}
+                    fireDangerToday={this.state.fireRatingData.fireDangerToday}
+                    fireBanToday={this.state.fireRatingData.fireBanToday}
+                    fireDangerTomorrow={this.state.fireRatingData.fireDangerTomorrow}
+                    fireBanTomorrow={this.state.fireRatingData.fireBanTomorrow}
+                    councils={this.state.fireRatingData.councils}
+                  />
+
+                </Col>
+                <Col>
+
+                  < Weather
+                    display={this.state.fireRatingData.display}
+                    region={this.state.weatherData.region}
+                    description={this.state.weatherData.description}
+                    temperature ={this.state.weatherData.temperature}
+                    percipitation={this.state.weatherData.percipitation}
+                    humidity={this.state.weatherData.humidity}
+                    windSpeed={this.state.weatherData.windSpeed}
+                    windDirection={this.state.weatherData.windDirection}
+                    weatherIcon={this.state.weatherData.weatherIcon}
+                    location={this.state.weatherData.location}
+                  />
+
+                </Col>
+              </Row>
+              <Row>
+                <Col>
+
+                  < Tweets />
+
+                </Col>
+                <Col>
+
+                  <h3>Other Info</h3>
+
+                </Col>
+              </Row>
+            </Container>
+          </div>);
+
     return(
       <div>
-        <div className="centerDiv textCenter">
-          <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName} getWeather={this.getWeather} getIndex={this.getFireRating}/></h1>
-        </div>
-        <Container>
-          <Row>
-            <Col>
-
-              < FireChart
-                loading={this.state.fireRatingData.loading}
-                regionName={this.state.fireRatingData.regionName}
-                regionNumber={this.state.fireRatingData.regionNumber}
-                fireDangerToday={this.state.fireRatingData.fireDangerToday}
-                fireBanToday={this.state.fireRatingData.fireBanToday}
-                fireDangerTomorrow={this.state.fireRatingData.fireDangerTomorrow}
-                fireBanTomorrow={this.state.fireRatingData.fireBanTomorrow}
-                councils={this.state.fireRatingData.councils}
-              />
-
-            </Col>
-            <Col>
-
-              < Weather
-                region={this.state.weatherData.region}
-                description={this.state.weatherData.description}
-                temperature ={this.state.weatherData.temperature}
-                percipitation={this.state.weatherData.percipitation}
-                humidity={this.state.weatherData.humidity}
-                windSpeed={this.state.weatherData.windSpeed}
-                windDirection={this.state.weatherData.windDirection}
-                weatherIcon={this.state.weatherData.weatherIcon}
-                location={this.state.weatherData.location}
-              />
-
-            </Col>
-          </Row>
-          <Row>
-            <Col>
-
-              < Tweets />
-
-            </Col>
-            <Col>
-
-              <h3>Other Info</h3>
-
-            </Col>
-          </Row>
-        </Container>
+      <div className="centerDiv textCenter">
+        <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName} getWeather={this.getWeather} getIndex={this.getFireRating}/></h1>
+      </div>
+      {content}
       </div>
     )
   }

@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 
-
 class FireRatingChart extends Component {
     render(){
       const ratingsList = {
@@ -44,9 +43,11 @@ class FireRatingChart extends Component {
       const animation = this.props.loading ?
         <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`}}/> :
         <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`, animation: `arrowMovement 2s`}}/>;
-      const fireBanToday = this.props.fireBanToday !== "Yes" ?  "" : "Total Fire Ban Today";
-      const fireBanTomorrow = this.props.fireBanTomorrow !== "Yes" ?
-        "" : "Total Fire Ban Tomorrow" + <img src={"../media/no-fire.svg"} alt="Fire ban symbol" height="1px" />;
+      const fireBanTodayText = this.props.fireBanToday !== "Yes" ? "" : "Total Fire Ban Today ";
+      const fireBanTodayIcon = this.props.fireBanToday !== "Yes" ? "" : <img src={require("../media/no-fire.svg")} alt="fire ban icon" height="20px"/>;
+
+      const fireBanTomorrowText = this.props.fireBanTomorrow !== "Yes" ? "" : "Total Fire Ban Tomorrow";
+      const fireBanTomorrowIcon = this.props.fireBanTomorrow !== "Yes" ? "" : <img src={require("../media/no-fire.svg")} alt="fire ban icon" height="20px"/>;;
 
       return(
         <div>
@@ -55,14 +56,14 @@ class FireRatingChart extends Component {
               <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
               {animation}
               <h2>{mainWarningText}</h2>
+              <p><span className="textBold">{fireBanTodayText}</span>{fireBanTodayIcon}</p>
               <p><span className="textBold">Region Name:</span> {this.props.regionName}</p>
               <p><span className="textBold">Region Number</span> (RFS Map Reference):  {this.props.regionNumber} </p>
               <p><span className="textBold">Councils:</span> {this.props.councils}</p>
-              <p><span className="textBold">{fireBanToday}</span></p>
-              <span>_______________</span>
+              <p><span>_______________</span></p>
 
-              <p><span className="textBold">Fire Danger Rating for Tomorrow:</span> <span className="warningText textBold" style={{backgroundColor: tomorrowsWarningColor, color: cataWarningColor }}>{this.props.fireDangerTomorrow}</span></p>
-              <p><span className="textBold">{fireBanTomorrow}</span></p>
+              <p><span className="textBold">Fire Danger Rating for Tomorrow:</span><span className="warningText textBold" style={{backgroundColor: tomorrowsWarningColor, color: cataWarningColor }}>{this.props.fireDangerTomorrow}</span></p>
+              <p><span className="textBold">{fireBanTomorrowText}</span>{fireBanTomorrowIcon}</p>
               <br />
 
               <h5>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></h5>

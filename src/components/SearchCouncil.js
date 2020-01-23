@@ -39,11 +39,14 @@ class SearchCouncil extends Component {
 
   handleChange(event) {
     let locationName = event.target.value;
-
     let locationIndex;
+
     councilAreas.map((region, index) => {
     if (region.includes(locationName)) {
      locationIndex = index;
+    };
+    if (locationName === "Select") {
+      locationIndex = 21;
     }
     });
 
