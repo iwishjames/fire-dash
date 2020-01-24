@@ -46,6 +46,7 @@ I wanted to create this app to develop my skills with React and general coding. 
 - App would have to be mobile first! Given that it is where people are most likely to view it.
 - Dark mode option or permanent dark mode...so that it doesn't use up battery life on phones? I think better to give the option, that be fixed - have to think about accessibility for people with difficulty viewing the screen.
 - Data would need to be updated every 5 minutes or so?
+- option to trigger autoupdate - could be a toggle button on  or off.
 - Some kind of timer - to show the last time the page updated.
 - The notification/email option if the fire thing goes above high - Use the trick we had learnt from class??
 - Map of Regions as classified by RFS

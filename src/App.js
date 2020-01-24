@@ -9,11 +9,16 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+/* ---- Day Mode/ Night Mode --- */
+let dayHour = (new Date).getHours();
+let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
+/* ------- */
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
+      whichMode: whichMode,
       fireRatingData: {
         display: false,
         regionName: "",
@@ -100,7 +105,7 @@ class App extends Component {
           <div>
             <Container>
               <Row>
-                <Col>
+                <Col className={`fadeIn ${this.state.whichMode}`}>
                   < FireChart
                     display={this.state.fireRatingData.display}
                     regionName={this.state.fireRatingData.regionName}
@@ -111,10 +116,9 @@ class App extends Component {
                     fireBanTomorrow={this.state.fireRatingData.fireBanTomorrow}
                     councils={this.state.fireRatingData.councils}
                   />
-
                 </Col>
-                <Col>
 
+                <Col className={`fadeIn ${this.state.whichMode}`}>
                   < Weather
                     display={this.state.fireRatingData.display}
                     region={this.state.weatherData.region}
@@ -127,30 +131,27 @@ class App extends Component {
                     weatherIcon={this.state.weatherData.weatherIcon}
                     location={this.state.weatherData.location}
                   />
-
                 </Col>
+
               </Row>
               <Row>
-                <Col>
-
+                <Col className={`fadeIn ${this.state.whichMode}`}>
                   < Tweets />
-
                 </Col>
-                <Col>
 
-                  <h3>Other Info</h3>
-
+                <Col className={`fadeIn ${this.state.whichMode}`}>
+                  <h5 className={"titleText"}>Other Info</h5>
                 </Col>
               </Row>
             </Container>
           </div>);
 
     return(
-      <div>
-      <div className="centerDiv textCenter">
-        <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName} getWeather={this.getWeather} getIndex={this.getFireRating}/></h1>
-      </div>
-      {content}
+      <div className="bgColorDarkMode">
+        <div className="centerDiv textCenter">
+          <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName} getWeather={this.getWeather} getIndex={this.getFireRating}/></h1>
+        </div>
+        {content}
       </div>
     )
   }

@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import clearnight from  '../media/weathericons/clearnight.png';
-import drizzlenight from  '../media/weathericons/drizzlenight.png';
-import partlycloudynight from  '../media/weathericons/partlycloudynight.png';
-import thunderstormnight from  '../media/weathericons/thunderstormnight.png';
-import sunny from  '../media/weathericons/sunny.png';
-import drizzle from  '../media/weathericons/drizzle.png';
-import partlycloudy from  '../media/weathericons/partlycloudy.png';
-import thunderstorm from  '../media/weathericons/thunderstorm.png';
+import clearnight from  '../media/weathericons/01n.png';
+import drizzlenight from  '../media/weathericons/09n.png';
+import partlycloudynight from  '../media/weathericons/02n.png';
+import thunderstormnight from  '../media/weathericons/11n.png';
+import sunny from  '../media/weathericons/01d.png';
+import drizzle from  '../media/weathericons/09d.png';
+import partlycloudy from  '../media/weathericons/02d.png';
+import thunderstorm from  '../media/weathericons/11d.png';
 
 /* ---- Weathers of the Week --- */
   let weatherIconsDay = [sunny, drizzle, partlycloudy, thunderstorm];
@@ -18,12 +18,9 @@ import thunderstorm from  '../media/weathericons/thunderstorm.png';
 /* ------- */
 
 /* ---- Day Mode/ Night Mode --- */
-  let dayNightMode = () => {
-    if (dayHour > 17) {
-      return weatherIconsNight;
-    }
-    return weatherIconsDay;
-  }
+  let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "weatherBlack";
+
+  let dayNightMode = (dayHour > 5 && dayHour < 17) ? weatherIconsDay : weatherIconsNight;
 /* ------- */
 
 /* ---- Days of the Week --- */
@@ -43,9 +40,9 @@ import thunderstorm from  '../media/weathericons/thunderstorm.png';
 
 /* ---- Week Charting --- */
   const dayByDay = weekChart.map(day =>
-    <Col md="auto" xs="auto" sm="auto" className="weatherDivs">
+    <Col md="auto" xs="auto" sm="auto" className={`weatherDivs ${whichMode}`}>
       <p className="textBold">{day}</p>
-      <img src={weatherIconsDay[Math.floor(Math.random() * weatherIconsDay.length)]} alt="drizzle icon" height="87px"/>
+      <img src={dayNightMode[Math.floor(Math.random() * dayNightMode.length)]} alt="drizzle icon" height="87px"/>
       <p>{Math.floor(Math.random() * (30-21 + 1)) + 21}℃ | {Math.floor(Math.random() * (20-1 + 1)) + 1}℃</p>
     </Col>);
     /* https://react-bootstrap.netlify.com/layout/grid/#col-props */
@@ -54,16 +51,15 @@ import thunderstorm from  '../media/weathericons/thunderstorm.png';
 class Weather extends Component {
   render(){
     return(
-      <div>
         <Container>
           <Row>
-            <h3>Weather</h3>
+            <h5 className={"titleText"}>Weather</h5>
           </Row>
-          <Row className="weatherBackground">
+          <Row className={`weatherBackground ${whichMode}`}>
             <Col>
               {/*<p><span className="textBold">Last Updated:</span> {this.state.description}</p>*/}
               <p><span className="textBold">{todayName}</span></p>
-              <img src={`https://openweathermap.org/img/wn/${this.props.weatherIcon}@2x.png`} alt="drizzle icon"/>
+              <img src={require(`../media/weathericons/${this.props.weatherIcon}.png`)} alt={this.props.description}/>
               <p>{this.props.description}</p>
               <p><span className="textBold">Current Temp:</span> {this.props.temperature}℃</p>
             </Col>
@@ -80,7 +76,6 @@ class Weather extends Component {
           </Row>
             {/*<h4>You can confirm the data on the official BoM site - <a href="http://www.bom.gov.au/products/IDN60801/IDN60801.94757.shtml" target="_blank">here!</a></h4> */}
         </Container>
-      </div>
     )
   }
 }

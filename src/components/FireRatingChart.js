@@ -1,4 +1,6 @@
 import React, {Component} from "react";
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 
 class FireRatingChart extends Component {
@@ -51,7 +53,7 @@ class FireRatingChart extends Component {
 
       return(
         <div>
-            <h3> Fire Danger Rating</h3>
+            <h5 className={"titleText"}>Fire Danger Rating</h5>
             <div className="parent">
               <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
               {animation}
@@ -60,13 +62,11 @@ class FireRatingChart extends Component {
               <p><span className="textBold">Region Name:</span> {this.props.regionName}</p>
               <p><span className="textBold">Region Number</span> (RFS Map Reference):  {this.props.regionNumber} </p>
               <p><span className="textBold">Councils:</span> {this.props.councils}</p>
-              <p><span>_______________</span></p>
 
               <p><span className="textBold">Fire Danger Rating for Tomorrow:</span><span className="warningText textBold" style={{backgroundColor: tomorrowsWarningColor, color: cataWarningColor }}>{this.props.fireDangerTomorrow}</span></p>
               <p><span className="textBold">{fireBanTomorrowText}</span>{fireBanTomorrowIcon}</p>
-              <br />
-
-              <h5>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></h5>
+              <p><span>_______________</span></p>
+              <p>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></p>
             </div>
         </div>
       )
