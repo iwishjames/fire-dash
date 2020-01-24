@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d41535d454296dbfa17cab3961d051e7",
+    "revision": "92bf407bfcdc58cdb51c0885647f37f2",
     "url": "/fire-dash/index.html"
   },
   {
-    "revision": "5d2dbfbc6f5e13084c49",
+    "revision": "0839452d3d87b40c2489",
     "url": "/fire-dash/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "d15a96d9c274bfd113de",
-    "url": "/fire-dash/static/css/main.43202c9a.chunk.css"
+    "revision": "b144aec4a387e5a3579d",
+    "url": "/fire-dash/static/css/main.e0787f41.chunk.css"
   },
   {
-    "revision": "5d2dbfbc6f5e13084c49",
-    "url": "/fire-dash/static/js/2.5d290b2c.chunk.js"
+    "revision": "0839452d3d87b40c2489",
+    "url": "/fire-dash/static/js/2.0d950ed5.chunk.js"
   },
   {
-    "revision": "d15a96d9c274bfd113de",
-    "url": "/fire-dash/static/js/main.1e5d2a3f.chunk.js"
+    "revision": "b144aec4a387e5a3579d",
+    "url": "/fire-dash/static/js/main.c60c00d5.chunk.js"
   },
   {
     "revision": "c023638bed4f475d4045",
@@ -30,5 +30,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "917141374436665b9de3849961654c06",
     "url": "/fire-dash/static/media/firechart.91714137.png"
+  },
+  {
+    "revision": "f1bda806fd2757443b890adb55767532",
+    "url": "/fire-dash/static/media/no-fire.f1bda806.svg"
   }
 ]);
