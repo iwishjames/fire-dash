@@ -101,7 +101,10 @@ class App extends Component {
 
   render(){
 
-    const content = this.state.fireRatingData.display === false ? "" : (
+    const content = this.state.fireRatingData.display === false ?
+    <div className={"blackBackground"}></div> 
+    :
+    (
           <div>
             <Container>
               <Row>

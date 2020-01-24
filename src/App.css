@@ -1,3 +1,7 @@
+.blackBackground {
+  background-color: black;
+  height: 100vh;
+}
 
 .bgColorLightMode {
   background-color: #f8f8f8;
