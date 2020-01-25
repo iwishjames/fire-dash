@@ -102,13 +102,13 @@ class App extends Component {
   render(){
 
     const content = this.state.fireRatingData.display === false ?
-    <div className={"blackBackground"}></div> 
+    <div className={"blackBackground"}></div>
     :
     (
           <div>
             <Container>
               <Row>
-                <Col className={`fadeIn ${this.state.whichMode}`}>
+                <Col className={`fadeIn`}>
                   < FireChart
                     display={this.state.fireRatingData.display}
                     regionName={this.state.fireRatingData.regionName}
@@ -121,7 +121,7 @@ class App extends Component {
                   />
                 </Col>
 
-                <Col className={`fadeIn ${this.state.whichMode}`}>
+                <Col className={`fadeIn`}>
                   < Weather
                     display={this.state.fireRatingData.display}
                     region={this.state.weatherData.region}
@@ -138,11 +138,11 @@ class App extends Component {
 
               </Row>
               <Row>
-                <Col className={`fadeIn ${this.state.whichMode}`}>
+                <Col className={`fadeIn`}>
                   < Tweets />
                 </Col>
 
-                <Col className={`fadeIn ${this.state.whichMode}`}>
+                <Col className={`fadeIn`}>
                   <h5 className={"titleText"}>Other Info</h5>
                 </Col>
               </Row>

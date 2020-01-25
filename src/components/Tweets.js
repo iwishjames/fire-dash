@@ -16,17 +16,20 @@ class Tweets extends Component {
         <h5 className={"titleText"}>NSW RFS Twitter Feed</h5>
       </Row>
 
-      <Row>
+      <Row md="auto" xs="auto" sm="auto">
+      <div className={"lightMode"}>
       <TwitterTimelineEmbed
        sourceType="profile"
        screenName="NSWRFS"
        options={{
          height: "500",
+         width: "500"
        }}
        theme={theme}
        noHeader="true"
        noFooter="true"
      />
+     </div>
      </Row>
      </Container>
   )}

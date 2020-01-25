@@ -1,5 +1,9 @@
+.noBottomMargin {
+  margin-bottom: 0;
+}
+
 .blackBackground {
-  background-color: black;
+  background-color: #f8f8f8;
   height: 100vh;
 }
 
@@ -8,15 +12,19 @@
 }
 
 .bgColorDarkMode {
-  background-color: black;
-  color: white;
+  background-color: #f8f8f8;
+  color: #1d1d1d;
 }
 
 .lightMode {
-  background-color: white;
   color: black;
-  box-shadow: 2px 4px 10px #BEBEBE;
+  background-color: #f8f8f8;
+  box-shadow: -5px -5px 5px 0px rgba(255, 255, 255, 0.7), 5px 5px 5px 0px rgba(55, 84, 170, 0.11), inset 0 0 20px rgba(255, 255, 255, 1);
+  border-radius: 5px;
+  border: solid 0.5px rgba(255, 255, 255, 0.8);
+
 }
+
 
 .darkMode {
   color: white;
@@ -33,13 +41,16 @@ select {
   outline: 0px;
   font-size: 0.9em;
   max-width: 50%;
-  background-color: #1d1d1d;
-  color: white;
+  /* background-color: #1d1d1d; */
+  background-color: white;
+
 }
 
 .titleText {
   font-weight: 700;
   font-variant: small-caps;
+  padding-top: 25px;
+  color: #566573;
 }
 
 /*  FadeIn Animation */
@@ -109,10 +120,10 @@ select {
 /*  Weather.js */
 .weatherDivs {
   /* background: linear-gradient(to bottom, #2a5298 0%, #1e3c72 100%) ; */
-  margin: 5px 5px 5px 0;
   border-radius: 5px;
   text-align: center;
   padding-top: 10px;
+  margin: 10px 15px 0 0;
 }
 
 

@@ -55,9 +55,12 @@ class FireRatingChart extends Component {
         <div>
             <h5 className={"titleText"}>Fire Danger Rating</h5>
             <div className="parent">
-              <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
-              {animation}
-              <h2>{mainWarningText}</h2>
+              <div className="lightMode">
+                <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
+                {animation}
+                <h2>{mainWarningText}</h2>
+              </div>
+              <div className="lightMode">
               <p><span className="textBold">{fireBanTodayText}</span>{fireBanTodayIcon}</p>
               <p><span className="textBold">Region Name:</span> {this.props.regionName}</p>
               <p><span className="textBold">Region Number</span> (RFS Map Reference):  {this.props.regionNumber} </p>
@@ -68,6 +71,7 @@ class FireRatingChart extends Component {
               <p><span>_______________</span></p>
               <p>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></p>
             </div>
+          </div>
         </div>
       )
       }
