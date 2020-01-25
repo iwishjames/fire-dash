@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "92bf407bfcdc58cdb51c0885647f37f2",
+    "revision": "50b1e51ac75302b2501e35dbf11c883f",
     "url": "/fire-dash/index.html"
   },
   {
@@ -8,16 +8,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/fire-dash/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "b144aec4a387e5a3579d",
-    "url": "/fire-dash/static/css/main.e0787f41.chunk.css"
+    "revision": "737776bea784f5ab9ce4",
+    "url": "/fire-dash/static/css/main.0955b34c.chunk.css"
   },
   {
     "revision": "0839452d3d87b40c2489",
     "url": "/fire-dash/static/js/2.0d950ed5.chunk.js"
   },
   {
-    "revision": "b144aec4a387e5a3579d",
-    "url": "/fire-dash/static/js/main.c60c00d5.chunk.js"
+    "revision": "737776bea784f5ab9ce4",
+    "url": "/fire-dash/static/js/main.b1456698.chunk.js"
   },
   {
     "revision": "c023638bed4f475d4045",
