@@ -12,6 +12,8 @@ import Row from 'react-bootstrap/Row';
 /* ---- Day Mode/ Night Mode --- */
 let dayHour = (new Date).getHours();
 let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
+let bgColorMode = (dayHour > 5 && dayHour < 17) ? "bgColorLightMode" : "bgColorDarkMode";
+let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
 /* ------- */
 
 class App extends Component {
@@ -102,7 +104,7 @@ class App extends Component {
   render(){
 
     const content = this.state.fireRatingData.display === false ?
-    <div className={"blackBackground"}></div>
+    <div style={{height: "100vh"}}className={bgColorMode}></div>
     :
     (
           <div>
@@ -143,14 +145,14 @@ class App extends Component {
                 </Col>
 
                 <Col className={`fadeIn`}>
-                  <h5 className={"titleText"}>Other Info</h5>
+                  <h5 className={titleTextMode}>Other Info</h5>
                 </Col>
               </Row>
             </Container>
           </div>);
 
     return(
-      <div className="bgColorDarkMode">
+      <div className={bgColorMode}>
         <div className="centerDiv textCenter">
           <h1>FireDash<span className="textUp">NSW</span> for < SearchCouncil setDistrictNumber={this.getDistrictNumber} setDistrictName={this.getDistrictName} getWeather={this.getWeather} getIndex={this.getFireRating}/></h1>
         </div>

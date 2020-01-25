@@ -29,6 +29,9 @@ const areasOptions = areasList.map((area) =>
   <option value={area}>{area}</option>
 );
 
+let dayHour = (new Date).getHours();
+let colorMode = (dayHour > 5 && dayHour < 17) ? "selectorColorLight" : "selectorColorDark";
+
 class SearchCouncil extends Component {
   constructor() {
     super()
@@ -57,7 +60,7 @@ class SearchCouncil extends Component {
 
   render(){
     return(
-      <select onChange={this.handleChange}>
+      <select className={colorMode} onChange={this.handleChange}>
         <option value="Select">Select</option>
         {areasOptions}
       </select>

@@ -6,6 +6,8 @@ import Row from 'react-bootstrap/Row';
 
 let dayHour = (new Date).getHours();
 let theme = (dayHour > 5 && dayHour < 17) ? "light" : "dark";
+let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
+let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
 
 class Tweets extends Component {
 
@@ -13,11 +15,11 @@ class Tweets extends Component {
     return(
       <Container>
       <Row>
-        <h5 className={"titleText"}>NSW RFS Twitter Feed</h5>
+        <h5 className={titleTextMode}>NSW RFS Twitter Feed</h5>
       </Row>
 
       <Row md="auto" xs="auto" sm="auto">
-      <div className={"lightMode"}>
+      <div className={whichMode}>
       <TwitterTimelineEmbed
        sourceType="profile"
        screenName="NSWRFS"

@@ -18,8 +18,8 @@ import thunderstorm from  '../media/weathericons/11d.png';
 /* ------- */
 
 /* ---- Day Mode/ Night Mode --- */
-  let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "weatherBlack";
-
+  let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
+  let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
   let dayNightMode = (dayHour > 5 && dayHour < 17) ? weatherIconsDay : weatherIconsNight;
 /* ------- */
 
@@ -53,7 +53,7 @@ class Weather extends Component {
     return(
         <Container>
           <Row>
-            <h5 className={"titleText"}>Weather</h5>
+            <h5 className={titleTextMode}>Weather</h5>
           </Row>
           <Row className={`weatherBackground ${whichMode}`}>
             <Col>

@@ -1,7 +1,11 @@
 import React, {Component} from "react";
+import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
+let dayHour = (new Date).getHours();
+let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
+let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
 
 class FireRatingChart extends Component {
     render(){
@@ -52,15 +56,20 @@ class FireRatingChart extends Component {
       const fireBanTomorrowIcon = this.props.fireBanTomorrow !== "Yes" ? "" : <img src={require("../media/no-fire.svg")} alt="fire ban icon" height="20px"/>;;
 
       return(
-        <div>
-            <h5 className={"titleText"}>Fire Danger Rating</h5>
+        <Container>
+          <Row>
+            <h5 className={titleTextMode}>Fire Danger Rating</h5>
+          </Row>
             <div className="parent">
-              <div className="lightMode">
+              <Row>
+              <div className={whichMode}>
                 <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
                 {animation}
                 <h2>{mainWarningText}</h2>
               </div>
-              <div className="lightMode">
+              </Row>
+              <Row>
+              <div className={whichMode}>
               <p><span className="textBold">{fireBanTodayText}</span>{fireBanTodayIcon}</p>
               <p><span className="textBold">Region Name:</span> {this.props.regionName}</p>
               <p><span className="textBold">Region Number</span> (RFS Map Reference):  {this.props.regionNumber} </p>
@@ -71,8 +80,9 @@ class FireRatingChart extends Component {
               <p><span>_______________</span></p>
               <p>You can confirm the data on the official RFS site - <a href="https://www.rfs.nsw.gov.au/fire-information/fdr-and-tobans" target="_blank">here!</a></p>
             </div>
+            </Row>
           </div>
-        </div>
+        </Container>
       )
       }
     }
