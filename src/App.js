@@ -11,9 +11,9 @@ import Row from 'react-bootstrap/Row';
 
 /* ---- Day Mode/ Night Mode --- */
 let dayHour = (new Date).getHours();
-let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
-let bgColorMode = (dayHour > 5 && dayHour < 17) ? "bgColorLightMode" : "bgColorDarkMode";
-let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
+let whichMode = (dayHour > 5 && dayHour < 18) ? "lightMode" : "darkMode";
+let bgColorMode = (dayHour > 5 && dayHour < 18) ? "bgColorLightMode" : "bgColorDarkMode";
+let titleTextMode = (dayHour > 5 && dayHour < 18) ? "titleTextLight" : "titleTextDark";
 /* ------- */
 
 class App extends Component {

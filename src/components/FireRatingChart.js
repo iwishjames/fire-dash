@@ -4,8 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 let dayHour = (new Date).getHours();
-let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
-let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
+let whichMode = (dayHour > 5 && dayHour < 18) ? "lightMode" : "darkMode";
+let titleTextMode = (dayHour > 5 && dayHour < 18) ? "titleTextLight" : "titleTextDark";
 
 class FireRatingChart extends Component {
     render(){

@@ -18,9 +18,9 @@ import thunderstorm from  '../media/weathericons/11d.png';
 /* ------- */
 
 /* ---- Day Mode/ Night Mode --- */
-  let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
-  let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
-  let dayNightMode = (dayHour > 5 && dayHour < 17) ? weatherIconsDay : weatherIconsNight;
+  let whichMode = (dayHour > 5 && dayHour < 18) ? "lightMode" : "darkMode";
+  let titleTextMode = (dayHour > 5 && dayHour < 18) ? "titleTextLight" : "titleTextDark";
+  let dayNightMode = (dayHour > 5 && dayHour < 18) ? weatherIconsDay : weatherIconsNight;
 /* ------- */
 
 /* ---- Days of the Week --- */

@@ -30,7 +30,7 @@ const areasOptions = areasList.map((area) =>
 );
 
 let dayHour = (new Date).getHours();
-let colorMode = (dayHour > 5 && dayHour < 17) ? "selectorColorLight" : "selectorColorDark";
+let colorMode = (dayHour > 5 && dayHour < 18) ? "selectorColorLight" : "selectorColorDark";
 
 class SearchCouncil extends Component {
   constructor() {

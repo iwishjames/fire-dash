@@ -5,9 +5,9 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
 let dayHour = (new Date).getHours();
-let theme = (dayHour > 5 && dayHour < 17) ? "light" : "dark";
-let titleTextMode = (dayHour > 5 && dayHour < 17) ? "titleTextLight" : "titleTextDark";
-let whichMode = (dayHour > 5 && dayHour < 17) ? "lightMode" : "darkMode";
+let theme = (dayHour > 5 && dayHour < 18) ? "light" : "dark";
+let titleTextMode = (dayHour > 5 && dayHour < 18) ? "titleTextLight" : "titleTextDark";
+let whichMode = (dayHour > 5 && dayHour < 18) ? "lightMode" : "darkMode";
 
 class Tweets extends Component {
 
