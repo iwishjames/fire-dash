@@ -62,11 +62,13 @@ class FireRatingChart extends Component {
           </Row>
             <div className="parent">
               <Row>
+              <Col>
               <div className={whichMode}>
                 <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
                 {animation}
                 <h2>{mainWarningText}</h2>
               </div>
+              </Col>
               </Row>
               <Row>
               <div className={whichMode}>

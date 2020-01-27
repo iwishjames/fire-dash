@@ -40,7 +40,7 @@ import thunderstorm from  '../media/weathericons/11d.png';
 
 /* ---- Week Charting --- */
   const dayByDay = weekChart.map(day =>
-    <Col md="auto" xs="auto" sm="auto" className={`weatherDivs ${whichMode}`}>
+    <Col className={`weatherDivs scrollMenuItems ${whichMode}`}>
       <p className="textBold noBottomMargin">{day}</p>
       <img src={dayNightMode[Math.floor(Math.random() * dayNightMode.length)]} alt="weather icon" height="87px"/>
       <p>{Math.floor(Math.random() * (30-21 + 1)) + 21}℃ | {Math.floor(Math.random() * (20-1 + 1)) + 1}℃</p>
@@ -72,7 +72,9 @@ class Weather extends Component {
             </Col>
           </Row>
           <Row>
+            <div className="scrollMenu">
             {dayByDay}
+            </div>
           </Row>
             {/*<h4>You can confirm the data on the official BoM site - <a href="http://www.bom.gov.au/products/IDN60801/IDN60801.94757.shtml" target="_blank">here!</a></h4> */}
         </Container>
