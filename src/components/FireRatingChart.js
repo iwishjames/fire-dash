@@ -47,8 +47,8 @@ class FireRatingChart extends Component {
       const cataWarningColor = todaysWarning === "CATASTROPHIC" ? "white" : null;
       const mainWarningText = this.props.loading ? "loading..." : <span className="warningText" style={{backgroundColor: warningBgColor, color: cataWarningColor }}> {todaysWarning} </span>;
       const animation = this.props.loading ?
-        <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`}}/> :
-        <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" height="120px" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`, animation: `arrowMovement 2s`}}/>;
+        <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`}}/> :
+        <img src={require("../media/airrow.png")} alt="Fire Rating Arrow" className="chartArrow" style={{transform:`rotate(${arrowDegree}deg)`, animation: `arrowMovement 2s`}}/>;
       const fireBanTodayText = this.props.fireBanToday !== "Yes" ? "" : "Total Fire Ban Today ";
       const fireBanTodayIcon = this.props.fireBanToday !== "Yes" ? "" : <img src={require("../media/no-fire.svg")} alt="fire ban icon" height="20px"/>;
 
@@ -64,7 +64,7 @@ class FireRatingChart extends Component {
               <Row>
               <Col>
               <div className={whichMode}>
-                <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="220px"/>
+                <img src={require("../media/firechart.png")} alt="fire ratings chart" className="fireChart" height="170px"/>
                 {animation}
                 <h2>{mainWarningText}</h2>
               </div>
